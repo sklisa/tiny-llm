@@ -13,6 +13,8 @@ def linear(
     w: mx.array,
     bias: mx.array | None = None,
 ) -> mx.array:
+    if bias is None:
+        return mx.matmul(x, mx.transpose(w))
     return mx.matmul(x, mx.transpose(w)) + bias
 
 
